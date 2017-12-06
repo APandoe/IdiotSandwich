@@ -1,0 +1,29 @@
+<!--taken from https://www.w3schools.com/html/html_tables.asp-->
+
+{% extends "layout.html" %}
+
+{% block title %}
+    home
+{% endblock %}
+
+<body>
+{% block main %}
+HOME PAGE WELCOME TO FOOD4THOT
+<br>
+LET ME INTRODUCE YOU TO THE WORLD OF SKETCHY DHALL RECIPES AND SUBPAR DHALL FOOD
+<br>
+<body>
+    <br>
+    <form action="/" method="POST">
+        <div class="btn-group-vertical">
+        <button class="btn btn-primary" type="submit" name="meal" value="0">brekkie</button>
+        <br>
+        <button class="btn btn-primary" type="submit" name="meal" value="1">lunch</button>
+        <br>
+        <button class="btn btn-primary" type="submit" name="meal" value="2">dinner</button>
+        </div>
+</body>
+<br>
+</body>
+
+{% endblock %}

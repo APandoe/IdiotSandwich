@@ -1,0 +1,46 @@
+<!--allows user to register for an account-->
+<!--FOR ALL FORMS make sure fields aren't left blank-->
+<!--    input(username), under text field of name tag "username" USE NOT NULL-->
+        <!--USERNAMES ARE UNIQUE FIELD IN DATABASE-->
+<!--        render apology if unput is blank or username already taken USE UNIQUE-->
+<!--    create a password, under text field whose name is "password"-->
+<!--    ask for same password again under "confirmation"-->
+<!--        render apology if input is blank or they don't match-->
+<!--STORE PASSWORD with generate_password_hash-->
+<!--    submit to /register via POST-->
+<!--   request.form.get("name") or whatever the input name was from the html template-->
+<!--    store (INSERT) user into "users", and also store hash of password but not password itself (generate_password_hash)-->
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <form action="/register" method="POST">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text"/>
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" input class="form-control" name="password" placeholder="Password" type="password"/>
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" input class="form-control" name="confirmation" placeholder="Retype password" type="password"/>
+        </div>
+        <button class="btn btn-primary" type="submit">Register</button>
+    </form>
+{% endblock %}
+
+
+<!--retrieve form submission data via POST-->
+<!--request.form.get("name")-->
+
+<!--CHECK FOR FAILURE-->
+<!--result = db.execute(...)-->
+<!--if not result:-->
+<!--    return apology("...")-->
+<!--INSERT-->
+<!--SQL Queries:-->
+<!--    db.execute("INSERT INTO users (username, hash) VALUES(:username, :hash)", username=request.form.get("username"), hash=hash)-->
+<!--store their id in session-->
+<!--    session["user_id"]-->
