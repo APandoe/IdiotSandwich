@@ -3,3 +3,4 @@ Flask
 Flask-Session
 bs4
 gunicorn
+psycopg2
