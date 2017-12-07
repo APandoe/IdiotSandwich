@@ -34,7 +34,7 @@ I MISS MOM'S FOOD TOO. (MENUDO, WASSGOOD?) BUT HERE'S A LIST OF FOOD ITEMS YOU C
 <div class="form-group hidden">
     {% for recipes in box %}
     Name: {{ recipe.name }}
-    Source: {{ recipe.src }}
+    Source: <a href="{{ recipe.link}}">{{ recipe.src }}</a>
     {% endfor %}
 </div>
 {{ string }}
