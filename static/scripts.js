@@ -20,7 +20,3 @@ function showRecipes(ingredients)
 		var input
 };
 
-function test(event)
-{
-	console.log("blah");
-};
