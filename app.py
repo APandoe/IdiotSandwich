@@ -174,7 +174,7 @@ def register():
         hashpass=generate_password_hash(request.form.get("password"))
 
         # Create new rows with newUser's data
-        newUser = db.execute("INSERT INTO 'users' ('username', 'hash') VALUES(':username', ':passhash')",
+        newUser = db.execute("INSERT INTO users ('username', 'hash') VALUES(':username', ':passhash')",
                              username=request.form.get("username"), passhash=hashpass)
 
         print (newUser)
