@@ -24,7 +24,7 @@ I MISS MOM'S FOOD TOO. (MENUDO, WASSGOOD?) BUT HERE'S A LIST OF FOOD ITEMS YOU C
 	</label>
 	<form>
 	{% for foods in menu %}
-    <input type="checkbox" name="ingredient" value=foods> {{foods}} <br>
+    <input class="list_item" type="checkbox" name="ingredient" value=foods> {{foods}} <br>
     {% endfor %}
     <input type="submit" value="Submit">
     </form>
