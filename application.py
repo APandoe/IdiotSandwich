@@ -27,7 +27,8 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 # Configure CS50 Library to use SQLite database
-db = SQL("sqlite:///food.db")
+db = SQL("postgres://hxhwhraafiphgj:3c315ee92c27124cf87245ed36165e820fbda34cf40ebdcda8dd0db5dbcae78e@ec2-54-235-123-153.compute-1.amazonaws.com:5432/d7rd8mp8rv5ifv"
+)
 
 @app.route("/", methods=["GET", "POST"])
 @login_required
