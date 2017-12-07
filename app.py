@@ -1,8 +1,9 @@
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
-from tempfile import mkdtemp
 import os
+import psycopg2
+from tempfile import mkdtemp
 from werkzeug.exceptions import default_exceptions
 from werkzeug.security import check_password_hash, generate_password_hash
 
@@ -173,7 +174,7 @@ def register():
         hashpass=generate_password_hash(request.form.get("password"))
 
         # Create new rows with newUser's data
-        newUser = db.execute("INSERT INTO users (username, hash) VALUES(:username, :passhash)",
+        newUser = db.execute("INSERT INTO 'users' ('username', 'hash') VALUES('username', 'passhash')",
                              username=request.form.get("username"), passhash=hashpass)
 
         print (newUser)
