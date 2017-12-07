@@ -19,8 +19,9 @@ function showRecipes(ingredients)
 {
 		var input
 
-}
+};
 
-$(".list_item").onclick(function() {
+function test(event)
+{
 	console.log("blah");
-});
+};
