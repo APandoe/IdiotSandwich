@@ -1,6 +1,5 @@
 import csv
 import urllib.request
-import requests
 import datetime
 import json
 
