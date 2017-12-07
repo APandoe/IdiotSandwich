@@ -18,7 +18,6 @@
 function showRecipes(ingredients)
 {
 		var input
-
 };
 
 function test(event)
