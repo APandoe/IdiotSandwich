@@ -8,12 +8,7 @@ hack your meal
 choose a meal
 <form action="/hacks" method="post">
 <body>
-<script>
-function test(event)
-{
-	console.log("blah");
-};
-</script>
+<script></script>
 <button class="btn btn-outline-primary btn-rounded waves-effect" type="submit">brekkie</button>
 <button type="submit">lunch</button>
 <button type="submit">dinner</button>
@@ -29,12 +24,18 @@ I MISS MOM'S FOOD TOO. (MENUDO, WASSGOOD?) BUT HERE'S A LIST OF FOOD ITEMS YOU C
 	</label>
 	<form>
 	{% for foods in menu %}
-    <input onclick="test()" type="checkbox" name="ingredient" value=foods> {{foods}} <br>
+    <input type="checkbox" name="ingredient" value=foods> {{foods}} <br>
     {% endfor %}
     <input type="submit" value="Submit">
     </form>
 </div>
 <br>
 <br>
+<div class="form-group hidden">
+    {% for recipes in box %}
+    Name: {{ recipe.name }}
+    Source: {{ recipe.src }}
+    {% endfor %}
+</div>
 {{ string }}
 {% endblock %}

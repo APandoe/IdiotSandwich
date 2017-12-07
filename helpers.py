@@ -45,33 +45,25 @@ def lookup(ingredients):
     """Look up recipes with ingredients."""
 
     try:
+        url = 'https://api.edamam.com/search?q=chicken&app_id=8cd06460&app_key=ebddcccc0ab9562d35ad429dc63d6e0b'
 
-        # GET CSV
-        url = f"https://api.edamam.com/search?q={ingredients}&app_id=8cd06460&app_key=ebddcccc0ab9562d35ad429dc63d6e0b"
         webpage = urllib.request.urlopen(url)
 
-        # Parse CSV
-        datareader = csv.reader(webpage.read().decode("utf-8").splitlines())
-
         # Ignore first row
-        hits = json.loads(datareader)
+        hits = json.loads(webpage.read())
 
-        # Parse second row
-        row = next(datareader)
+        recipe ={}
+        content = []
 
-        # Ensure stock exists
-        try:
-            price = float(row[4])
-        except:
-            return None
-
-        # Return stock's name (as a str), price (as a float), and (uppercased) ingredients (as a str)
-        return {
-            "name": ingredients.upper(), # for backward compatibility with Yahoo
-            "price": price,
-            "ingredients": ingredients.upper()
-        }
-
+        for value in range(5):
+        	recipe = {
+        		"src": hits['hits'][value]['recipe']['source'],
+        		"url": hits['hits'][value]['recipe']['url'],
+        		"name": hits['hits'][value]['recipe']['label'],
+        		"allergens": hits['hits'][value]['recipe']['healthLabels']
+        	}
+        	content.append(recipe)
+        return content
     except:
         return None
 

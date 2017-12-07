@@ -135,6 +135,8 @@ def hacks():
 
     # User reached route via POST (as by submitting a form via POST)
     if request.method == "POST":
+        ingredients = request.form.get("ingredient")
+        results = lookup(ingredients)
 
         return render_template("hacks.html", string = "postrequest")
 
@@ -169,6 +171,8 @@ def register():
         # Create new rows with newUser's data
         newUser = db.execute("INSERT INTO users (username, hash) VALUES(:username, :passhash)",
                              username=request.form.get("username"), passhash=generate_password_hash(request.form.get("password")))
+
+        print (newUser)
 
         # Ensure newUser is unique (id is primary key, cannot insert newUser with same id as other entry)
         if not newUser:
